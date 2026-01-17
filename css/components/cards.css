@@ -1,0 +1,246 @@
+/* Card Components */
+.card {
+    background-color: var(--bg-primary);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-footer {
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+}
+
+/* Stat Cards */
+.stat-card {
+    text-align: center;
+    padding: 25px;
+}
+
+.stat-card .value {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.stat-card .label {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 5px;
+}
+
+.stat-card .subtext {
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+/* Protocol Card */
+.protocol-card {
+    padding: 20px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.protocol-card.completed {
+    border-left-color: var(--success-color);
+    opacity: 0.8;
+}
+
+.protocol-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.protocol-card-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.protocol-card-category {
+    display: inline-block;
+    padding: 4px 8px;
+    background-color: var(--bg-secondary);
+    border-radius: 4px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+.protocol-card-time {
+    color: var(--text-light);
+    font-size: 0.9rem;
+}
+
+.protocol-card-xp {
+    color: var(--warning-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.protocol-card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+/* Analysis Card */
+.analysis-card {
+    padding: 25px;
+}
+
+.analysis-title {
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+}
+
+.analysis-content {
+    line-height: 1.8;
+}
+
+.analysis-highlight {
+    background-color: #fff8e1;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    margin: 15px 0;
+    border-left: 3px solid var(--warning-color);
+}
+
+.analysis-recommendation {
+    background-color: #e8f5e9;
+    padding: 10px;
+    border-radius: var(--radius-sm);
+    margin-top: 15px;
+    border-left: 3px solid var(--success-color);
+}
+
+/* Achievement Card */
+.achievement-card {
+    text-align: center;
+    padding: 25px;
+    position: relative;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.achievement-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--warning-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.achievement-title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.achievement-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+}
+
+.achievement-progress {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.achievement-progress-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 3px;
+}
+
+.achievement-xp {
+    color: var(--warning-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Calendar Card */
+.calendar-card {
+    padding: 20px;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.calendar-day {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 5px;
+}
+
+.calendar-date {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.calendar-date:hover {
+    background-color: var(--bg-secondary);
+}
+
+.calendar-date.today {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.calendar-date.completed {
+    background-color: #e8f5e9;
+    color: var(--success-color);
+}
+
+.calendar-date.partial {
+    background-color: #fff8e1;
+    color: var(--warning-color);
+}

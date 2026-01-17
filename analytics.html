@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Trackora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <!-- Same sidebar as dashboard -->
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/icons/logo.svg" alt="Trackora">
+                    <span>Trackora</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="protocols.html" class="nav-item">
+                    <span>🎯</span> Protocols
+                </a>
+                <a href="analytics.html" class="nav-item active">
+                    <span>📈</span> Analytics
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span>🚪</span> Logout
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">AJ</div>
+                    <div>
+                        <div class="user-name" id="userName">Alex Johnson</div>
+                        <div class="user-level">Level 3 Developer</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Progress Analytics</h1>
+                <div class="time-filter">
+                    <select id="timeRange">
+                        <option value="week">This Week</option>
+                        <option value="month">This Month</option>
+                        <option value="quarter">Last 3 Months</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+            </header>
+
+            <!-- Overview Stats -->
+            <section class="analytics-overview">
+                <h2>Performance Overview</h2>
+                <div class="overview-grid">
+                    <div class="overview-card">
+                        <div class="overview-value" id="totalProtocols">0</div>
+                        <div class="overview-label">Total Protocols</div>
+                        <div class="overview-change" id="protocolChange">+0% from last week</div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-value" id="avgCompletion">0%</div>
+                        <div class="overview-label">Avg. Completion</div>
+                        <div class="overview-change" id="completionChange">+0% from last week</div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-value" id="totalHours">0</div>
+                        <div class="overview-label">Total Hours</div>
+                        <div class="overview-change" id="hoursChange">+0h from last week</div>
+                    </div>
+                    <div class="overview-card">
+                        <div class="overview-value" id="streakRecord">0</div>
+                        <div class="overview-label">Best Streak</div>
+                        <div class="overview-change">Current: <span id="currentStreak">0</span> days</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Progress Chart -->
+            <section class="chart-section">
+                <h2>Weekly Progress</h2>
+                <div class="chart-container">
+                    <canvas id="weeklyChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Category Breakdown -->
+            <section class="category-section">
+                <h2>Protocols by Category</h2>
+                <div class="category-grid" id="categoryGrid">
+                    <!-- Categories will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Productivity Insights -->
+            <section class="insights-section">
+                <h2>Productivity Insights</h2>
+                <div class="insights-card">
+                    <div class="insight-item">
+                        <h3>🕒 Most Productive Time</h3>
+                        <p id="productiveTime">Not enough data yet</p>
+                    </div>
+                    <div class="insight-item">
+                        <h3>🎯 Best Completion Rate</h3>
+                        <p id="bestCategory">Not enough data yet</p>
+                    </div>
+                    <div class="insight-item">
+                        <h3>📈 Weekly Trend</h3>
+                        <p id="weeklyTrend">Not enough data yet</p>
+                    </div>
+                    <div class="insight-item">
+                        <h3>💡 Recommendation</h3>
+                        <p id="recommendation">Complete more protocols to get personalized recommendations</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Monthly Summary -->
+            <section class="monthly-section">
+                <h2>Monthly Summary</h2>
+                <div class="monthly-card">
+                    <div class="monthly-header">
+                        <h3 id="currentMonth">December 2024</h3>
+                        <div class="monthly-stats">
+                            <div class="monthly-stat">
+                                <div class="stat-number" id="monthProtocols">0</div>
+                                <div class="stat-label">Protocols</div>
+                            </div>
+                            <div class="monthly-stat">
+                                <div class="stat-number" id="monthHours">0</div>
+                                <div class="stat-label">Hours</div>
+                            </div>
+                            <div class="monthly-stat">
+                                <div class="stat-number" id="monthCompletion">0%</div>
+                                <div class="stat-label">Completion</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="monthly-calendar" id="monthlyCalendar">
+                        <!-- Calendar will be populated by JavaScript -->
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/analytics.js"></script>
+    <script src="js/app.js"></script>
+    <!-- Include Chart.js from CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+</html>

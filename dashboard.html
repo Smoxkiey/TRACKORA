@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Trackora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/icons/logo.svg" alt="Trackora">
+                    <span>Trackora</span>
+                </a>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item active">
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="protocols.html" class="nav-item">
+                    <span>🎯</span> Protocols
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <span>📈</span> Analytics
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span>🚪</span> Logout
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">AJ</div>
+                    <div>
+                        <div class="user-name" id="userName">Alex Johnson</div>
+                        <div class="user-level">Level 3 Developer</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Today's Progress</h1>
+                <div class="header-actions">
+                    <div class="date-display" id="currentDate"></div>
+                    <button class="btn-primary" id="addProtocolBtn">+ Add Protocol</button>
+                </div>
+            </header>
+
+            <!-- Daily Stats -->
+            <section class="stats-section">
+                <h2>Daily Overview</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-value" id="dailyCompleted">0</div>
+                        <div class="stat-label">Protocols Completed</div>
+                        <div class="stat-target">Target: 5</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="streakDays">0</div>
+                        <div class="stat-label">Day Streak</div>
+                        <div class="stat-target">🔥 Keep going!</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="weeklyProgress">0%</div>
+                        <div class="stat-label">Weekly Progress</div>
+                        <div class="stat-target" id="weekRange"></div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalXP">0</div>
+                        <div class="stat-label">Total XP</div>
+                        <div class="stat-target">Next Level: 100 XP</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Today's Protocols -->
+            <section class="protocols-section">
+                <div class="section-header">
+                    <h2>Today's Protocols</h2>
+                    <button class="btn-outline" id="resetDailyBtn">Reset Daily</button>
+                </div>
+                
+                <div class="protocols-list" id="protocolsList">
+                    <!-- Protocols will be loaded here -->
+                    <div class="empty-state">
+                        <p>No protocols for today. Add some to get started!</p>
+                        <button class="btn-primary" id="addFirstProtocol">Add First Protocol</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Weekly Progress -->
+            <section class="weekly-section">
+                <h2>This Week's Progress</h2>
+                <div class="week-grid" id="weekGrid">
+                    <!-- Days will be populated by JavaScript -->
+                </div>
+            </section>
+
+            <!-- Quick Analysis -->
+            <section class="analysis-section">
+                <h2>Today's Analysis</h2>
+                <div class="analysis-card" id="dailyAnalysis">
+                    <p>Complete your first protocol to see analysis...</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Protocol Modal -->
+    <div class="modal" id="addProtocolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Protocol</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="protocolForm">
+                <div class="form-group">
+                    <label for="protocolTitle">Protocol Title</label>
+                    <input type="text" id="protocolTitle" placeholder="e.g., Morning Code Review" required>
+                </div>
+                <div class="form-group">
+                    <label for="protocolType">Type</label>
+                    <select id="protocolType" required>
+                        <option value="coding">Coding</option>
+                        <option value="learning">Learning</option>
+                        <option value="review">Review</option>
+                        <option value="planning">Planning</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="protocolTime">Estimated Time (minutes)</label>
+                    <input type="number" id="protocolTime" min="5" max="240" value="30" required>
+                </div>
+                <div class="form-group">
+                    <label for="protocolPriority">Priority</label>
+                    <select id="protocolPriority" required>
+                        <option value="low">Low</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="high">High</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-outline modal-close">Cancel</button>
+                    <button type="submit" class="btn-primary">Add Protocol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

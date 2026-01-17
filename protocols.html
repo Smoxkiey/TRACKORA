@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocols - Trackora</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/components/cards.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <!-- Same sidebar as dashboard -->
+            <div class="sidebar-header">
+                <a href="index.html" class="logo">
+                    <img src="assets/icons/logo.svg" alt="Trackora">
+                    <span>Trackora</span>
+                </a>
+            </div>
+            <nav class="sidebar-nav">
+                <a href="dashboard.html" class="nav-item">
+                    <span>📊</span> Dashboard
+                </a>
+                <a href="protocols.html" class="nav-item active">
+                    <span>🎯</span> Protocols
+                </a>
+                <a href="analytics.html" class="nav-item">
+                    <span>📈</span> Analytics
+                </a>
+                <div class="nav-divider"></div>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <span>🚪</span> Logout
+                </a>
+            </nav>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <div class="avatar">AJ</div>
+                    <div>
+                        <div class="user-name" id="userName">Alex Johnson</div>
+                        <div class="user-level">Level 3 Developer</div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Protocols Library</h1>
+                <div class="header-actions">
+                    <button class="btn-primary" id="createProtocolBtn">+ Create Protocol</button>
+                </div>
+            </header>
+
+            <div class="protocols-filter">
+                <div class="filter-tabs">
+                    <button class="filter-tab active" data-filter="all">All</button>
+                    <button class="filter-tab" data-filter="coding">Coding</button>
+                    <button class="filter-tab" data-filter="learning">Learning</button>
+                    <button class="filter-tab" data-filter="review">Review</button>
+                    <button class="filter-tab" data-filter="custom">Custom</button>
+                </div>
+                <div class="search-box">
+                    <input type="text" placeholder="Search protocols..." id="protocolSearch">
+                </div>
+            </div>
+
+            <section class="protocols-grid" id="protocolsGrid">
+                <!-- Default protocols will be loaded here -->
+            </section>
+
+            <section class="quick-add">
+                <h2>Quick Add Templates</h2>
+                <div class="template-grid">
+                    <div class="template-card" data-template="morning-review">
+                        <h3>Morning Code Review</h3>
+                        <p>Review yesterday's code (30 min)</p>
+                        <button class="btn-outline btn-small">Add to Today</button>
+                    </div>
+                    <div class="template-card" data-template="pomodoro">
+                        <h3>Pomodoro Session</h3>
+                        <p>25 min focused coding (25 min)</p>
+                        <button class="btn-outline btn-small">Add to Today</button>
+                    </div>
+                    <div class="template-card" data-template="learn-new">
+                        <h3>Learn New Concept</h3>
+                        <p>Study one new thing (45 min)</p>
+                        <button class="btn-outline btn-small">Add to Today</button>
+                    </div>
+                    <div class="template-card" data-template="code-review">
+                        <h3>Code Review Practice</h3>
+                        <p>Review open source PRs (30 min)</p>
+                        <button class="btn-outline btn-small">Add to Today</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Create Protocol Modal -->
+    <div class="modal" id="createProtocolModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Create Custom Protocol</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <form id="createProtocolForm">
+                <div class="form-group">
+                    <label for="createTitle">Protocol Title</label>
+                    <input type="text" id="createTitle" required>
+                </div>
+                <div class="form-group">
+                    <label for="createDescription">Description</label>
+                    <textarea id="createDescription" rows="3"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="createCategory">Category</label>
+                    <select id="createCategory" required>
+                        <option value="coding">Coding</option>
+                        <option value="learning">Learning</option>
+                        <option value="review">Review</option>
+                        <option value="planning">Planning</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="createTime">Time (minutes)</label>
+                        <input type="number" id="createTime" min="5" value="30" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="createXP">XP Reward</label>
+                        <input type="number" id="createXP" min="5" max="50" value="10">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox">
+                        <input type="checkbox" id="createRecurring">
+                        <span>Make this a daily protocol</span>
+                    </label>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn-outline modal-close">Cancel</button>
+                    <button type="submit" class="btn-primary">Create Protocol</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/protocols.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
